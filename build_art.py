@@ -22,6 +22,13 @@ for r in range(190, 20, -8):
     a = int(3 + (190-r)*0.35)
     d.ellipse((610-r,330-r,610+r,330+r), fill=(70,220,255,a))
 d.ellipse((500,220,720,440), fill=(157,245,255,210), outline=(230,255,255,240), width=5)
+# portal beam and crown flare: a second diagonal motion cue behind the whale
+for width, alpha in [(120, 18), (76, 28), (38, 55)]:
+    d.polygon([(580-width//2,225),(580+width//2,225),(750+width,700),(650-width,700)], fill=(70,220,255,alpha))
+for i in range(12):
+    ang = i * math.pi / 6
+    x2, y2 = 610 + math.cos(ang)*155, 330 + math.sin(ang)*155
+    d.line((610,330,x2,y2), fill=(198,255,255,170), width=3)
 # storm clouds
 for _ in range(85):
     x = rng.randrange(-80, 1080); y = rng.randrange(390, 690)
